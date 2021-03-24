@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import br.com.cbgomes.acme.client.domain.Client;
 import br.com.cbgomes.acme.client.repository.ClientRepository;
-import br.com.cbgomes.acme.service.exceptions.ClientNotFoundException;
+import br.com.cbgomes.acme.exceptions.ClientNotFoundException;
 
 /**
  * @author cbgomes
@@ -40,7 +40,7 @@ public class ClientResource {
 	@PutMapping()
 	public void updateClient(@RequestBody Client client,
 		@RequestParam("id")Long id) throws Exception {
-		this.repository.save(this.repository.findById(id).orElseThrow(() -> new ClientNotFoundException(HttpStatus.BAD_REQUEST, "client not found")));
+		this.repository.save(this.repository.findById(id).orElseThrow(() -> new ClientNotFoundException(HttpStatus.NOT_FOUND, "CLIENT NOT FOUND")));
 	}
 	
 	@GetMapping("/id")

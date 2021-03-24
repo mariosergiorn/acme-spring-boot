@@ -1,4 +1,4 @@
-package br.com.cbgomes.acme.service.exceptions;
+package br.com.cbgomes.acme.exceptions;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.server.ResponseStatusException;
